@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -14,6 +14,8 @@ body {
 header {
   background: #0b1220;
   padding: 15px 0;
+  position: sticky;
+  top: 0;
 }
 
 .nav {
@@ -38,21 +40,35 @@ nav a:hover {
   color: #fff;
 }
 
-/* Hero */
+/* Hero Section */
 .hero {
-  height: 80vh;
-  background: url('https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b') no-repeat center/cover;
+  height: 90vh;
+  background: url('https://images.unsplash.com/photo-1546868871-7041f2a55e12') no-repeat center/cover;
   display: flex;
   align-items: center;
   padding-left: 10%;
+  position: relative;
+}
+
+/* Dark overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-content h2 {
-  font-size: 48px;
+  font-size: 50px;
 }
 
 .hero-content p {
-  margin: 10px 0;
+  margin: 15px 0;
   font-size: 18px;
 }
 
@@ -64,22 +80,24 @@ nav a:hover {
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  background: #ff5500;
 }
 
 /* Features */
 .features {
   text-align: center;
-  padding: 50px 20px;
-}
-
-.features h2 {
-  margin-bottom: 30px;
+  padding: 60px 20px;
 }
 
 .feature-cards {
   display: flex;
   justify-content: center;
   gap: 20px;
+  margin-top: 30px;
 }
 
 .card {
@@ -88,16 +106,17 @@ nav a:hover {
   padding: 20px;
   border-radius: 10px;
   width: 250px;
+  transition: 0.3s;
 }
 
-.card h3 {
-  margin-bottom: 10px;
+.card:hover {
+  transform: translateY(-8px);
 }
 
 /* Reviews */
 .reviews {
   text-align: center;
-  padding: 50px 20px;
+  padding: 60px 20px;
 }
 
 .review-cards {
@@ -108,8 +127,6 @@ nav a:hover {
 }
 
 .review-cards .card {
-  background: #e5e7eb;
-  color: #000;
   width: 300px;
 }
 
@@ -125,4 +142,22 @@ footer {
   padding: 20px;
   background: #0b1220;
   margin-top: 20px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .feature-cards,
+  .review-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .hero-content h2 {
+    font-size: 32px;
+  }
 }
